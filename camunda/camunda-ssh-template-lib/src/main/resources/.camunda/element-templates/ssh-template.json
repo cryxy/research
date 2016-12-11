@@ -1,0 +1,67 @@
+{
+  "name": "SSH Remote Command Task",
+  "id": "de.cryxy.research.camunda.ssh.SshJavaDelegate",
+  "description" : "Führt das angegebene Kommando per SSH auf einem entfernten Rechner aus!",
+  "appliesTo": [
+    "bpmn:ServiceTask"
+  ],
+  "properties": [
+    {
+      "label": "Implementation Type",
+      "type": "String",
+      "value": "de.cryxy.research.camunda.ssh.SshJavaDelegate",
+      "editable": false,
+      "binding": {
+        "type": "property",
+        "name": "camunda:class"
+      }
+    },
+    {
+      "label": "Host",
+      "type": "String",
+      "value" : "${hostname}",
+      "binding": {
+        "type": "camunda:inputParameter",
+        "name": "hostname"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Command",
+      "description" : "Das auszuführende Kommando.",
+      "type": "String",
+      "binding": {
+        "type": "camunda:inputParameter",
+        "name": "command"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Benutzer",
+      "type": "String",
+      "binding": {
+        "type": "camunda:inputParameter",
+        "name": "username"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Passwort",
+      "description" : "Achtung: im Klartext sichtbar",
+      "type": "String",
+      "binding": {
+        "type": "camunda:inputParameter",
+        "name": "password"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    }
+  ]
+}
