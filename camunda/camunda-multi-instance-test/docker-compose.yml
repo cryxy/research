@@ -1,0 +1,13 @@
+version: '3'
+services:
+  camunda:
+    build: .
+    image: cryxy/camunda-multi-instance-test:1.0.0-SNAPSHOT
+    ports:
+    - "8080:8080"
+    - "9990:9990"
+    environment:
+    - DB_DRIVER=com.mysql.jdbc.Driver
+    - DB_USERNAME=camunda
+    - DB_PASSWORD=camunda
+    - DB_URL=jdbc:mysql://localhost:3306/camunda
